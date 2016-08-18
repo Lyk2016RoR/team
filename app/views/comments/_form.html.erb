@@ -1,26 +1,45 @@
-
-<% @book.comments.each do |comment| %>
+<% unless @book.nil? %>
+<% @book.comments.reject { |comment| comment.id.nil? }.each do |comment| %>
     <p>
       <strong>Comment:</strong>
       <%= comment.body %>
 
-          <%= link_to 'Destroy Comment', [comment.book, comment],
+          <%= link_to 'Destroy Comment', comment,
                       method: :delete %></p>
 
 <% end %>
-<p>
+<% end %>
+<% unless @author.nil? %>
+    <% @author.comments.reject { |comment| comment.id.nil? }.each do |comment| %>
+        <p>
+          <strong>Comment:</strong>
+          <%= comment.body %>
 
-</p>
+          <%= link_to 'Destroy Comment', comment,
+                      method: :delete %></p>
+
+    <% end %>
+<% end %>
+
 
     <h2>Add a comment:</h2>
     <div class="panel-body">
-      <%= form_for([@book, @book.comments.new]) do |f| %>
+      <%= form_for Comment.new do |f| %>
 
 
           <p>
             <%= f.label :Comment  %><br>
             <%= f.text_field :body, size: 70%>
           </p>
+
+          <% unless @book.nil? %>
+              <%= f.hidden_field :book_id, value: @book.id %>
+          <% end %>
+
+          <% unless @author.nil? %>
+              <%= f.hidden_field :author_id, value: @author.id %>
+          <% end %>
+
           <p>
             <%= f.submit %>
           </p>

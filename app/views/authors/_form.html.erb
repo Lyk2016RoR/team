@@ -1,0 +1,13 @@
+<h2> Adding New Author</h2>
+
+<%= form_for @author do |b| %>
+    <p>
+      <%= b.label "Author Name" %><br>
+      <%= b.text_field :name %>
+    </p>
+    <p>
+      <%= b.submit :Save %>
+    </p>
+<% end %>
+
+<%= link_to "Go Authors", authors_path%>

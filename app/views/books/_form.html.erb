@@ -22,7 +22,11 @@
     </p>
 
       <p>
-        <%= b.label :PublishDate %><br>
+        <%= b.select :category_id, @categories %>
+      </p>
+
+      <p>
+        <%= b.label :PublishedAt %><br>
         <%= b.date_select :published_at %>
       </p>
 
