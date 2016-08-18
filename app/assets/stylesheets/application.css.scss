@@ -15,7 +15,7 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome";
+
 
 .round-image-50 {
     background-color: white;
@@ -23,8 +23,8 @@
     border-radius: 25px;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
-    height: 50px;
-    width: 50px;
+    height: 200px;
+    width: 200px;
     overflow: hidden;
     text-align: center;
     img { width: 100% }
@@ -32,7 +32,7 @@
 .round-image-100 {
     background-color: white;
     border: 1px solid #d9d9d9;
-    border-radius: 0px;
+    border-radius: 25px;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
     height: 200px;
@@ -40,4 +40,14 @@
     overflow: hidden;
     text-align: center;
     img { width: 100% }
+}
+.book_border{
+   border: 1px solid #d9d9d9;  
+   height: 300px;
+   padding:10px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    margin-bottom:10px;
+
 }
