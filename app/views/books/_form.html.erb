@@ -1,38 +1,48 @@
 
-  <h2> Adding New Book</h2>
+  <h2> Add A New Book</h2>
+<div role="form"> 
+    <%= form_for @book do |b| %>
+      <div class="form-group">
+          <%= b.label :BookName %><br>
+          <%= b.text_field :name , class:'form-control' %>
+        </div>
 
-<%= form_for @book do |b| %>
-    <p>
-      <%= b.label :BookName %><br>
-      <%= b.text_field :name %>
-    </p>
+      <div class="form-group">
+          <%= b.label :ISBN %><br>
+          <%= b.text_field :ISBN , class:'form-control' %>
+        </div>
+      <div class="form-group">
+          <%= b.label :Description %><br>
+          <%= b.text_area :description , class:'form-control' %>
+       </div>
 
-    <p>
-      <%= b.label :ISBN %><br>
-      <%= b.text_field :ISBN %>
-    </p>
-    <p>
-      <%= b.label :Description %><br>
-      <%= b.text_area :description %>
-    </p>
+      <div class="form-group">
+          <%= b.label :Summary %><br>
+          <%= b.text_area :summary , class:'form-control' %>
+       </div>
 
-    <p>
-      <%= b.label :Summary %><br>
-      <%= b.text_area :summary %>
-    </p>
 
-      <p>
+      <div class="form-group">
         <%= b.select :category_id, @categories %>
-      </p>
+      </div>
 
-      <p>
-        <%= b.label :PublishedAt %><br>
-        <%= b.date_select :published_at %>
-      </p>
+      <div class="form-group">
+            <%= b.label :PublishDate %><br>
+            <%= b.date_select :published_at , class:'dropdown' %>
+       </div>
 
-     <p>
-       <%= b.submit :Save %>
-     </p>
-<% end %>
 
+        <div class="form-group">
+            <%= b.label :book_image, class: 'col-sm-2 control-label'  %>
+            <div class="col-sm-6">
+                <%= b.file_field :book_image %>
+            </div>
+        </div>
+     <br> <br>
+
+         <div class="form-group">
+           <%= b.submit :Save , class:'btn btn-primary'%>
+         </div>
+    <% end %>
+</div>
   <%= link_to "Go Books", books_path%>

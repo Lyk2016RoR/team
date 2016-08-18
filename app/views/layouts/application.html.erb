@@ -10,6 +10,45 @@
   <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 
   <body>
-    <%= yield %>
+  <div  class="container-fluid">
+  		<div class="row">
+				<nav class="navbar navbar-inverse">
+				    <div class="container-fluid">
+				        <div class="navbar-header">
+				         <a class="navbar-brand" href="/books">Book </a>
+				    </div>
+				    <ul class="nav navbar-nav">
+				      <li class="active"><a href="/books">Home</a></li>
+				      <li><a href="/categories">Categories</a></li>
+				      <li><a href="#"></a></li> 
+				    </ul>
+
+				    <ul class="nav navbar-nav navbar-right">
+				    <% if !current_user.present? %>
+				      <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				       <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				  	<% else %>
+				       <li><a href="/"><span class="glyphicon glyphicon-user"></span> User</a></li>
+				       <li>
+				       <%= link_to destroy_user_session_path,  method: :delete  do %>
+				       <span class="glyphicon glyphicon-log-out"></span> Log Out
+				      <%end %>
+				      </li>			     
+				    <% end %> 
+				    </ul>
+				  </div>
+				</nav>
+
+				<div class="col-sm-8 col-sm-offset-1"> 
+		    			<%= yield %>
+		   		</div>
+		   
+			   	<div class="col-sm-3" style="float:right">
+			   		<div class="well">
+			   					xxxxxxxxxxxxxxxxxxxx<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			   		</div>
+			   	</div>
+	   	</div>
+   	</div>
   </body>
 </html>

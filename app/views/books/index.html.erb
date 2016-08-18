@@ -1,16 +1,25 @@
-<h1>Books</h1><br>
-
+<p>Books</p>
 <% @books.each do |b|%>
-    Name: <a href="<%= book_path(b.id)%>"><%= b.name%></a><br>
-    ISBN: <%= b.ISBN%><br>
-    Description: <%= b.description%><br>
-    Summary: <%= b.summary%><br>
-    Publish Date: <%= b.published_at%><br>
-
-    <%= link_to "Edit", edit_book_path(b)%>
-    <%= link_to "Delete", book_path(b), method: :delete %><br><br>
 
 
+
+	<div  class="row">
+		<div class="col-md-4">
+			<p class="round-image-100"><%= image_tag(b.book_image.url(:medium)) %></p>
+		</div>
+		<div class="col-md-8">
+
+
+		    Name: <%= b.name%><br>
+		    ISBN: <%= b.ISBN%><br>
+		    Description: <%= b.description%><br>
+		    Summary: <%= b.summary%><br>
+		    Publish Date: <%= b.published_at%><br>
+
+		    <%= link_to "Edit", edit_book_path(b)%>
+		    <%= link_to "Delete", book_path(b), method: :delete %><br><br>
+	    </div>
+	     	</div>
 <% end %>
 
 <%= link_to "Add New Book", new_book_path %>

@@ -1,3 +1,4 @@
+<div class=""></div>
 <b>Book Name:</b><td><%= @book.name%></td><br>
 <b>ISBN:</b><td><%= @book.ISBN%></td><br>
 <b>Description:</b><td><%= @book.description%></td><br>
@@ -13,4 +14,7 @@
 <%= render 'comments/form'%>
 
 <%= link_to "Go Books", books_path %>
+
+<p class="round-image-50"><%= image_tag(@book.book_image.url(:thumb)) %></p>
+
 
