@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def new
     @book = Book.new
+    load_categories
   end
 
   def show
@@ -17,12 +18,14 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to book_path(@book), notice: "Book Saved"
     else
-      render 'form'
+      load_categories
+      render 'books/new'
     end
   end
 
   def edit
     set_book
+    load_categories
   end
 
   def update
@@ -30,7 +33,8 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       redirect_to book_path(@book), notice: "Book Updated"
     else
-      render 'form'
+      load_categories
+      render 'books/edit'
     end
   end
 
@@ -42,13 +46,15 @@ class BooksController < ApplicationController
 
 
 private
-
+  def load_categories
+    @categories = Category.all.collect {|c| [c.name, c.id ] }
+    end
 def set_book
   @book = Book.find(params[:id])
 end
 
 def book_params
-  params.require(:book).permit(:name, :description, :summary, :ISBN, :published_at)
+  params.require(:book).permit(:name, :description, :summary, :ISBN, :published_at, :category_id)
 end
 
 end

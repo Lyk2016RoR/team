@@ -3,8 +3,12 @@
 <b>Description:</b><td><%= @book.description%></td><br>
 <b>Summary:</b><td><%= @book.summary%></td><br>
 <b>Publish Date:</b><td><%= @book.published_at%></td><br>
+<b>Avarage Rating:</b><td><%= @book.average_rating%></td><br>
 
 
+
+
+<%= render 'votes/form' %>
 
 <%= render 'comments/form'%>
 
