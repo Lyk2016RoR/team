@@ -21,7 +21,14 @@
       <%= b.text_area :summary %>
     </p>
 
+      <p>
+        <%= b.label :PublishDate %><br>
+        <%= b.date_select :published_at %>
+      </p>
+
      <p>
        <%= b.submit :Save %>
      </p>
 <% end %>
+
+  <%= link_to "Go Books", books_path%>
