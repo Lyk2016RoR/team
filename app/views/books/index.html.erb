@@ -1,0 +1,16 @@
+<h1>Books</h1><br>
+
+<% @books.each do |b|%>
+    Name: <%= b.name%><br>
+    ISBN: <%= b.ISBN%><br>
+    Description: <%= b.description%><br>
+    Summary: <%= b.summary%><br>
+    Publish Date: <%= b.published_at%><br>
+
+    <%= link_to "Edit", edit_book_path(b)%>
+    <%= link_to "Delete", book_path(b), method: :delete %><br><br>
+
+
+<% end %>
+
+<%= link_to "Add New Book", new_book_path %>
