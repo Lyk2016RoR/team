@@ -4,6 +4,14 @@
   <%= devise_error_messages! %>
 
     <div class="field">
+      <div class="form-group">
+        <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
+        <div class="col-sm-6">
+            <%= f.file_field :avatar %>
+        </div>
+    </div>
+
+
     <%= f.label :username%><br />
     <%= f.text_field :username, autofocus: true %>
 
