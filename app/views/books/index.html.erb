@@ -11,9 +11,13 @@
 
 
 		    Name: <%= b.name%><br>
-		    ISBN: <%= b.ISBN%><br>
 		    Description: <%= b.description%><br>
-		    Summary: <%= b.summary%><br>
+				Summary: <%= b.summary%><br>
+				Author: <%= b.author%><br>
+				Translator : <%= b.translator%><br>
+				Publisher : <%= b.publisher%><br>
+			  ISBN: <%= b.ISBN%><br>
+
 		    Publish Date: <%= b.published_at%><br>
 
 		    <%= link_to "Edit", edit_book_path(b)%>
