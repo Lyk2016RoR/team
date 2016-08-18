@@ -1,0 +1,27 @@
+
+  <h2> Adding New Book</h2>
+
+<%= form_for @book do |b| %>
+    <p>
+      <%= b.label :BookName %><br>
+      <%= b.text_field :name %>
+    </p>
+
+    <p>
+      <%= b.label :ISBN %><br>
+      <%= b.text_field :ISBN %>
+    </p>
+    <p>
+      <%= b.label :Description %><br>
+      <%= b.text_area :description %>
+    </p>
+
+    <p>
+      <%= b.label :Summary %><br>
+      <%= b.text_area :summary %>
+    </p>
+
+     <p>
+       <%= b.submit :Save %>
+     </p>
+<% end %>
