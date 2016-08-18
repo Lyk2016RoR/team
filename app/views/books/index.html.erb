@@ -1,7 +1,7 @@
 <h1>Books</h1><br>
 
 <% @books.each do |b|%>
-    Name: <%= b.name%><br>
+    Name: <a href="<%= book_path(b.id)%>"><%= b.name%></a><br>
     ISBN: <%= b.ISBN%><br>
     Description: <%= b.description%><br>
     Summary: <%= b.summary%><br>

@@ -1,0 +1,29 @@
+
+<% @book.comments.each do |comment| %>
+    <p>
+      <strong>Comment:</strong>
+      <%= comment.body %>
+
+          <%= link_to 'Destroy Comment', [comment.book, comment],
+                      method: :delete %></p>
+
+<% end %>
+<p>
+
+</p>
+
+    <h2>Add a comment:</h2>
+    <div class="panel-body">
+      <%= form_for([@book, @book.comments.new]) do |f| %>
+
+
+          <p>
+            <%= f.label :Comment  %><br>
+            <%= f.text_field :body, size: 70%>
+          </p>
+          <p>
+            <%= f.submit %>
+          </p>
+
+<% end %>
+</div>
