@@ -1,8 +1,11 @@
 <div class=""></div>
 <b>Book Name:</b><td><%= @book.name%></td><br>
-<b>ISBN:</b><td><%= @book.ISBN%></td><br>
 <b>Description:</b><td><%= @book.description%></td><br>
 <b>Summary:</b><td><%= @book.summary%></td><br>
+<b>Author:</b><td><%= @book.author%></td><br>
+<b>Translator:</b><td><%= @book.translator%></td><br>
+<b>Publisher:</b><td><%= @book.publisher%></td><br>
+<b>ISBN:</b><td><%= @book.ISBN%></td><br>
 <b>Publish Date:</b><td><%= @book.published_at%></td><br>
 <b>Avarage Rating:</b><td><%= @book.average_rating%></td><br>
 
@@ -16,5 +19,3 @@
 <%= link_to "Go Books", books_path %>
 
 <p class="round-image-50"><%= image_tag(@book.book_image.url(:thumb)) %></p>
-
-
