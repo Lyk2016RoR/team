@@ -3,6 +3,6 @@
 <b>Description:</b><td><%= @book.description%></td><br>
 <b>Summary:</b><td><%= @book.summary%></td><br>
 <b>Publish Date:</b><td><%= @book.published_at%></td><br>
- <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
- 
+ <p class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></p>
+
 <%= link_to "Go Books", books_path %>
