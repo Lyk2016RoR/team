@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :books do
+
+      	collection do
+     		get 'search'
+
+  	end
+  
     resources :votes, only: [:create, :update ]
   end
   resources :authors
@@ -29,5 +35,4 @@ Rails.application.routes.draw do
   end
 
   root 'static_pages#welcome'
-
 end

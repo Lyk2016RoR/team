@@ -18,6 +18,15 @@ class BooksController < ApplicationController
     end
   end
 
+
+  def search
+    if params[:search].present?
+      @books = Book.search(params[:search])
+    else
+      @books = []
+    end
+  end
+
   def index
     @books = Book.all
   end

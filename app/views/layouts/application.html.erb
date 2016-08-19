@@ -21,8 +21,9 @@
           <li><a href="/categories">Categories</a></li>
           <li><a href="/authors">Authors</a></li>
 
-          <li><a href="#"></a></li>
+
         </ul>
+
 
         <ul class="nav navbar-nav navbar-right">
           <% if !current_user.present? %>
@@ -47,6 +48,22 @@
       </div>
     </nav>
 
+
+			   	<div class="col-sm-3" style="float:right">
+			   		<div class="well">
+              <%= form_tag search_books_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+       <p>
+         <%= text_field_tag :search, params[:search], class: "form-control" %>
+         <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+       </p>
+     <% end %>
+			   					xxxxxxxxxxxxxxxxxxxx<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			   		</div>
+			   	</div>
+	   	</div>
+   	</div>
+  </body>
+
     <div class="col-sm-8 col-sm-offset-1">
       <% if !flash.empty? %>
           <div id="flash">
@@ -62,13 +79,10 @@
       <%= yield %>
     </div>
 
-    <div class="col-sm-3" style="float:right">
-      <div class="well">
-        xxxxxxxxxxxxxxxxxxxx<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </div>
-    </div>
+
   </div>
 </div>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </body>
+
 </html>

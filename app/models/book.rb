@@ -1,5 +1,4 @@
 class Book < ApplicationRecord
-
   has_many :comments
   belongs_to :category
   has_many :votes
@@ -10,6 +9,12 @@ class Book < ApplicationRecord
   def average_rating
     rating = votes.average(:rating)
     rating ? rating.to_s : "0.0"
+  end
+
+
+  def self.search(q)
+    q = "%#{q.downcase}%"
+    where("lower(name) LIKE ? OR lower(description) LIKE ?", q, q)
   end
 
   has_attached_file :book_image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"

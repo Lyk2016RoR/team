@@ -22,6 +22,8 @@ Book.create(name:'Havvanın Üç Kızı', category_id: 1, description:"İki Fark
 Book.create(name:'Kürt Mantolu Madonna', category_id: 3, description:"Her gün, daima öğleden sonra oraya gidiyor, koridorlardaki resimlere bakıyormuş gibi ağır ağır, fakat büyük bir sabırsızlıkla asıl hedefine varmak isteyen adımlarımı zorla zapt ederek geziniyor.",ISBN: "45679750835605", publisher:"Yapı Kredi Yayınları",summary:"Sabahattin Ali, bu kitabında güçlü bir tutkunun resmini çiziyor. ")
 
 
+
+
 Author.create(name:"Adam Fawer", description:"1970 New York dogumlu yazar.")
 Author.create(name:"Sabahattin Ali ", description:"25 Şubat 1907 dogumlu Türk yazar ve şair.")
 Author.create(name:"Erdem Moralıoğlu ", description:" 1978 Türk-İngiliz moda tasarımcısıdır.")

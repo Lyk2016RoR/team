@@ -1,0 +1,9 @@
+<div class="row">
+  <% @books.each do |book| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%=  book.name  %> <br>
+      </div>
+    </div>
+  <% end %>
+</div>
