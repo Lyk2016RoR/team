@@ -10,13 +10,8 @@ class User < ApplicationRecord
   has_many :votes
   has_many :books
   has_many :comments
-  has_many :favorite_books
-  has_many :favorites, through: :favorite_books, source: :book
+  has_many :lists
 
-  def lists name
-    favorites.where(name: name)
-  end
 
-  # @user.lists('readed')
 
 end

@@ -29,7 +29,7 @@
               <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
               <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           <% else %>
-              <li><a href="/"><span class="glyphicon glyphicon-user"></span> User</a></li>
+              <li><a href="/user/<%=current_user.id%>"><span class="glyphicon glyphicon-user"></span> <%= current_user.name%></a></li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                     <span class="glyphicon glyphicon-log-out"></span> Log Out
