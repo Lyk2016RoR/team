@@ -1,6 +1,7 @@
 
 <div class="row book">
 	<div class="col-sm-offset-3">
+    <% if current_user.present? %>
 		<%= form_for [@book, @vote] do |f| %>
 		    <% 10.times do |i| %>
 		        <%= f.radio_button :rating, i+1 %>
@@ -12,5 +13,6 @@
 
 		    <%= f.submit "Vote", class: "btn btn-sm btn-primary btnhover" %>
 		<% end %>
+        <% end %>
 	</div>
 </div>

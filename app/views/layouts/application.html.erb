@@ -70,19 +70,23 @@
 
    
 			   	<div class="col-sm-3" style="float:right">
-            <b><h4>Categories</h4></b>
-            <% @sidebercategories.each do |c| %>
-                <%= link_to c.name, category_path(c)%><br>
-            <% end %>
-			   		<div class="well">
 
+			   		<div class="well">
+              <div>
+                <b><h4>Categories</h4></b>
+                <% @sidebercategories.each do |c| %>
+                    <%= link_to c.name, category_path(c)%><br>
+                <% end %>
+              </div>
+              <div>
               <%= form_tag search_books_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
                <p>
                  <%= text_field_tag :search, params[:search], class: "form-control" %>
                   <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
                     </p>
              <% end %>
-			   					xxxxxxxxxxxxxxxxxxxx<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              </div>
+               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			   		</div>
 			   	</div>
 
