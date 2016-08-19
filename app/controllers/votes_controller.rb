@@ -6,7 +6,8 @@ class VotesController < ApplicationController
 
   def create
     @vote = @book.votes.new
-    @vote.rating = params[:vote][:rating] unless @vote.rating.nil?
+    redirect_to @book, notice: "Vote is empty" and return if params[:vote].nil?
+    @vote.rating = params[:vote][:rating]
     @vote.user = current_user
 
     if @vote.save

@@ -9,6 +9,13 @@ class BooksController < ApplicationController
 
   def show
     set_book
+    if current_user
+      if @book.votes.where(user_id: current_user.id).any?
+        @vote = @book.votes.where(user_id: current_user.id).first
+      else
+        @vote = @book.votes.build
+      end
+    end
   end
 
   def index
@@ -46,6 +53,7 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to books_path
   end
+
   def favorite
     set_book
     type = params[:type]
@@ -65,15 +73,18 @@ class BooksController < ApplicationController
   end
 
 private
+
   def load_categories
     @categories = Category.all.collect {|c| [c.name, c.id ] }
-    end
-def set_book
-  @book = Book.find(params[:id])
-end
+    @authors = Author.all
+  end
 
-def book_params
-  params.require(:book).permit(:name, :description, :summary, :ISBN, :published_at, :category_id, :book_image)
-end
+  def set_book
+    @book = Book.find(params[:id])
+  end
+
+  def book_params
+    params.require(:book).permit(:name, :description, :summary, :ISBN, :published_at, :category_id, :book_image, :translator, :publisher, author_ids: [])
+  end
 
 end

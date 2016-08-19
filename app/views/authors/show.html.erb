@@ -1,6 +1,11 @@
 <b>Author Name:</b><td><%= @author.name%></td><br>
 <b>Author Description:</b><td><%= @author.description%></td><br>
 
+<h3>Books of <%= @author.name%></h3>
+<% @author.books.each do |book|%>
+    <%= link_to book.name, book_path(book) %><br>
+    <b>Description </b><%= book.description %><br><hr>
+<% end %>
 <%= render 'comments/form' %>
 
 <%= link_to "Go Authors", authors_path%>
