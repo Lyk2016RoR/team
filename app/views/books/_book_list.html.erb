@@ -1,0 +1,25 @@
+<% @books.each do |book| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-plus"></i>
+        <%= link_to book.category.name, category_path(book.category) %>
+        <i class="fa fa-angle-right"></i>
+        <%= link_to book.name, book_path(book) %>
+        <span class="pull-right label label-success">{<%= book.average_rating %>}</span>
+      </div>
+      <div class="panel-body">
+        <p style="color:black">
+          <%= book.description %>
+        </p>
+      </div>
+
+        <div class="pull-right">
+          <%= link_to book_path(book), class: "btn btn-default" do %>
+              Devamını Oku
+              <i class="fa fa-angle-right"></i>
+          <% end %>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    
+<% end %>

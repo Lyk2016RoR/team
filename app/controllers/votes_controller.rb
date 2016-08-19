@@ -1,8 +1,8 @@
 class VotesController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :set_book
   before_action :set_vote, only: [:update]
-  before_action :authorize_user!
+  before_action :authorize_user!, only: [:update]
 
   def create
     @vote = @book.votes.new
