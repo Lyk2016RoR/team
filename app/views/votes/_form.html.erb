@@ -1,11 +1,17 @@
-<%= form_for [@book, @book.votes.build] do |f| %>
-    <% 10.times do |i| %>
-        <%= f.radio_button :rating, i+1 %>
-        <% (i+1).times do %>
-            <i class='fa fa-star'></i>
-        <% end %>
-        <br />
-    <% end %>
+<div class="row book">
+	<div class="col-sm-offset-3">
+		<%= form_for [@book, @book.votes.build] do |f| %>
 
-    <%= f.submit "Vote", class: "btn btn-sm btn-primary" %>
-<% end %>
+		<div class="starhover">
+		    <% 10.times do |i| %>
+		        <%= f.radio_button :rating, i+1 %>
+		        <% (i+1).times do %>
+		            <i class='fa fa-star'></i>
+		        <% end %>
+		        <br />
+		    <% end %>
+		</div>
+		    <%= f.submit "Vote", class: "btn btn-sm btn-primary btnhover" %>
+		<% end %>
+	</div>
+</div>

@@ -1,11 +1,9 @@
 
 <div class="row">
-	
+	<div class=""></div>
+	<%= link_to "Add New Book", new_book_path %>
 </div>
 <% @books.each do |b|%>
-
-
-
 	<div  class="row">
 
 			<div class="book_border">
@@ -20,7 +18,7 @@
 					    <b>ISBN:</b>  <%= b.ISBN%><br>
 					    <b>Description:</b>  <%= b.description%><br>
 					    <b>Summary:</b>  <%= b.summary.first(200)%><%=link_to "...more", book_path(b) %><br>
-					     <b>Publish Date:</b>  <%= b.published_at%><br>
+					    <b>Publish Date:</b>  <%= b.published_at%><br>
 					</div>
 					<div class="row" >
 					    <%= link_to "Edit", edit_book_path(b)%>
@@ -31,4 +29,4 @@
 	</div>
 <% end %>
 
-<%= link_to "Add New Book", new_book_path %>
+

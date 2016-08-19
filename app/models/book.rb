@@ -11,6 +11,15 @@ class Book < ApplicationRecord
 
 
 
+
+def self.search(search)
+  where("name LIKE ? OR ingredients LIKE ? OR cooking_instructions LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
+end
+
+
+
+
+
   has_attached_file :book_image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :book_image, :content_type => /\Aimage\/.*\Z/
 
