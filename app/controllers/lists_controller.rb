@@ -21,8 +21,14 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    set_list
+    @list.destroy
+    redirect_to lists_path
+  end
+
   def show
-set_list
+    set_list
   end
 
 

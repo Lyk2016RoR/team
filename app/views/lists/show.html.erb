@@ -2,3 +2,5 @@
 <% @list.books.each do |l| %>
   <%= link_to l.name, book_path(l) %><br>
 <% end %>
+
+<br><br><%= link_to "Delete This List", list_path(@list), method: :delete %>
