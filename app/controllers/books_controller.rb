@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+
   before_action :authenticate_admin!, except: [:show, :index, :search]
 
 
@@ -16,6 +17,7 @@ class BooksController < ApplicationController
         @vote = @book.votes.build
       end
     end
+
   end
 
 
@@ -25,6 +27,8 @@ class BooksController < ApplicationController
     else
       @books = []
     end
+
+
   end
 
   def index

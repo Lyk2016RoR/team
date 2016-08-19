@@ -12,6 +12,7 @@ class Book < ApplicationRecord
   end
 
 
+
   def self.search(q)
     q = "%#{q.downcase}%"
     where("lower(name) LIKE ? OR lower(description) LIKE ?", q, q)
