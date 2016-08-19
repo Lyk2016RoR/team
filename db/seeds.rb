@@ -20,8 +20,13 @@ Sadece iyi yaşa. Sadece yaşa... Sevgiyle, Will." )
 Book.create(name:'Havvanın Üç Kızı', category_id: 1, description:"İki Farklı Kapak Seçeneğiyle Mevcuttur. Siparişinizde Stokta Mevcut Olan Kapak Seçeneği Gönderilecektir.
 ", ISBN:"123456787654", publisher: "Doğan Kitap",summary:"İnanca, inançsızlığa, arayışa, farklı kadınlara ve aşka dair baş döndürücü bir yolculuk... Ben ne annem gibi dindarım, ne babam gibi kâinatın, beş duyumla kavradığım şeylerden ibaret olduğuna kaniyim. ")
 Book.create(name:'Kürt Mantolu Madonna', category_id: 3, description:"Her gün, daima öğleden sonra oraya gidiyor, koridorlardaki resimlere bakıyormuş gibi ağır ağır, fakat büyük bir sabırsızlıkla asıl hedefine varmak isteyen adımlarımı zorla zapt ederek geziniyor.",ISBN: "45679750835605", publisher:"Yapı Kredi Yayınları",summary:"Sabahattin Ali, bu kitabında güçlü bir tutkunun resmini çiziyor. ")
-puts "Seed data created"
+
 
 Author.create(name:"Adam Fawer", description:"1970 New York dogumlu yazar.")
 Author.create(name:"Sabahattin Ali ", description:"25 Şubat 1907 dogumlu Türk yazar ve şair.")
 Author.create(name:"Erdem Moralıoğlu ", description:" 1978 Türk-İngiliz moda tasarımcısıdır.")
+
+Admin.create(name:"admin", surname:"admin", email: "admin@admin.com", password: "123456")
+
+
+puts "Seed data created"
