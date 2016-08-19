@@ -3,10 +3,12 @@
 <% @authors.each do |a|%>
     Name: <a href="<%= author_path(a.id)%>"><%= a.name%></a><br>
     Description: <%= a.description%><br>
-    <%= link_to "Edit", edit_author_path(a)%>
+    <% if current_admin.present?%>
+        <%= link_to "Edit", edit_author_path(a)%>
     <%= link_to "Delete", author_path(a), method: :delete %><br><br>
-
+    <% end %>
 
 <% end %>
-
-<%= link_to "Add New Author", new_author_path %>
+<% if current_admin.present?%>
+    <%= link_to "Add New Author", new_author_path %>
+<% end %>

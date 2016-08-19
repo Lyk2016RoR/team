@@ -22,12 +22,15 @@
 					     <b>Publish Date:</b>  <%= b.published_at%><br>
 					</div>
 					<div class="row" >
-					    <%= link_to "Edit", edit_book_path(b)%>
+            <% if current_admin.present?%>
+          <%= link_to "Edit", edit_book_path(b)%>
 					    <%= link_to "Delete", book_path(b), method: :delete %><br><br>
+                <% end %>
 				    </div>
 			    </div>
 			</div>
 	</div>
 <% end %>
-
+<% if current_admin.present?%>
 <%= link_to "Add New Book", new_book_path %>
+<% end %>
