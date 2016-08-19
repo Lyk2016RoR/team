@@ -8,6 +8,14 @@ class User < ApplicationRecord
  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_many :votes
+  has_many :books
+  has_many :favorite_books
+  has_many :favorites, through: :favorite_books, source: :book
 
+  def lists name
+    favorites.where(name: name)
+  end
+
+  # @user.lists('readed')
 
 end

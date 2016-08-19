@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+
+
   def new
     @book = Book.new
     load_categories
@@ -43,7 +46,23 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to books_path
   end
-
+  def favorite
+    set_book
+    type = params[:type]
+    if type == "favorite"
+        fav = current_user.favorites.build book: @book, name: 'favorites'
+        fav = current_user.favorites.build book: @book, name: 'readed'
+        fav = current_user.favorites.build book: @book, name: 'wanted'
+        fav.save
+      redirect_to :back, notice: 'You favorited #{@book.name}'
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@book)
+      redirect_to :back, notice: 'Unfavorited #{@book.name}'
+    else
+      # Type missing, nothing happens
+      redirect_to :back, notice: 'Nothing happened.'
+    end
+  end
 
 private
   def load_categories

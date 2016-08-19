@@ -6,7 +6,7 @@ class VotesController < ApplicationController
 
   def create
     @vote = @book.votes.new
-    @vote.rating = params[:vote][:rating]
+    @vote.rating = params[:vote][:rating] unless @vote.rating.nil?
     @vote.user = current_user
 
     if @vote.save
