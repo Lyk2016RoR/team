@@ -13,7 +13,7 @@
     <td><%= @book.summary %></td>
     <br>
     <b>Author:</b>
-    <td><%= @book.author %></td>
+    <td><%= @book.authors.collect { |x| x.name }.join(", ") %></td>
     <br>
     <b>Translator:</b>
     <td><%= @book.translator %></td>

@@ -1,4 +1,6 @@
 class AuthorsController < ApplicationController
+  before_action :authenticate_admin!, except: [:show, :index]
+
   def new
     @author = Author.new
   end

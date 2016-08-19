@@ -1,16 +1,20 @@
 <div class="row">
   <div class="col-sm-offset-3">
-    <% unless @book.nil? %>
-    <% @book.comments.reject { |comment| comment.id.nil? }.each do |comment| %>
-        <p>
-          <strong>Comment:</strong>
-          <%= comment.body %>
+  
 
-              <%= link_to 'Destroy Comment', comment,
-                          method: :delete %></p>
+<% unless @book.nil? %>
+<% @book.comments.reject { |comment| comment.id.nil? }.each do |comment| %>
+    <p>
+      <strong>Commenter:</strong>
+      <%= comment.user.email %><br />
+      <strong>Comment:</strong>
+      <%= comment.body %>
 
-    <% end %>
-    <% end %>
+          <%= link_to 'Destroy Comment', comment,
+                      method: :delete %></p>
+
+<% end %>
+<% end %>
     <% unless @author.nil? %>
         <% @author.comments.reject { |comment| comment.id.nil? }.each do |comment| %>
             <p>
@@ -20,32 +24,32 @@
               <%= link_to 'Destroy Comment', comment,
                           method: :delete %></p>
 
+
         <% end %>
     <% end %>
 
+    <h2>Add a comment:</h2>
+    <div class="panel-body">
+      <%= form_for Comment.new do |f| %>
 
-        <h2>Add a comment:</h2>
-        <div class="panel-body">
-          <%= form_for Comment.new do |f| %>
+              <div  role="form">
+                <p>
+                  <%= f.label :Comment  %><br>
+                  <%= f.text_field :body, size: 70%>
+                </p>
 
+                <% unless @book.nil? %>
+                    <%= f.hidden_field :book_id, value: @book.id %>
+                <% end %>
 
-              <p>
-                <%= f.label :Comment  %><br>
-                <%= f.text_field :body, size: 70%>
-              </p>
+                <% unless @author.nil? %>
+                    <%= f.hidden_field :author_id, value: @author.id %>
+                <% end %>
 
-              <% unless @book.nil? %>
-                  <%= f.hidden_field :book_id, value: @book.id %>
-              <% end %>
-
-              <% unless @author.nil? %>
-                  <%= f.hidden_field :author_id, value: @author.id %>
-              <% end %>
-
-              <p>
-                <%= f.submit %>
-              </p>
-
+                <p>
+                  <%= f.submit %>
+                </p>
+              </div>
     <% end %>
     </div>
   </div>
