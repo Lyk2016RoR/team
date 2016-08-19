@@ -27,6 +27,17 @@
 				    <% if !current_user.present? %>
 				      <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 				       <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+               <form class="navbar-form navbar-right" role="search">
+                <div class="form-group input-group">
+
+                    <span class="input-group-btn">
+
+                        <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                    </span>
+                  </div>
+                </form>
 				  	<% else %>
 				       <li><a href="/"><span class="glyphicon glyphicon-user"></span> User</a></li>
 				       <li>
@@ -45,6 +56,12 @@
 
 			   	<div class="col-sm-3" style="float:right">
 			   		<div class="well">
+              <%= form_tag search_books_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+       <p>
+         <%= text_field_tag :search, params[:search], class: "form-control" %>
+         <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+       </p>
+     <% end %>
 			   					xxxxxxxxxxxxxxxxxxxx<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			   		</div>
 			   	</div>
