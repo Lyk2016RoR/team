@@ -13,14 +13,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :books do
-    put :favorite, on: :member
     resources :votes, only: [:create, :update ]
   end
   resources :authors
   resources :categories, only: [:show, :index]
   resources :comments, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
+  resources :lists
 
-
+  get 'user/:id', to: 'profiles#show'
 
 
 

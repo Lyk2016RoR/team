@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   belongs_to :category
   has_many :votes
   has_and_belongs_to_many :authors
+  has_and_belongs_to_many :lists
 
 
   def average_rating
