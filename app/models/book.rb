@@ -1,12 +1,16 @@
 class Book < ApplicationRecord
   has_many :comments
-  has_and_belongs_to_many :authors
   belongs_to :category
   has_many :votes
+  has_and_belongs_to_many :authors
+  has_and_belongs_to_many :lists
+
 
   def average_rating
-    votes.average(:rating).to_s
+    rating = votes.average(:rating)
+    rating ? rating.to_s : "0.0"
   end
+
 
   def self.search(q)
     q = "%#{q.downcase}%"

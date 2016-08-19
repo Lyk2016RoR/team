@@ -1,29 +1,36 @@
-<p>Books</p>
+
+<div class="row">
+
+</div>
 <% @books.each do |b|%>
 
 
 
 	<div  class="row">
-		<div class="col-md-4">
-			<p class="round-image-100"><%= image_tag(b.book_image.url(:medium)) %></p>
-		</div>
-		<div class="col-md-8">
+			<div class="book_border">
+				<div class="col-md-4 ">
+					<p class="round-image-100"><%= image_tag(b.book_image.url(:medium)) %></p>
+				</div>
 
 
-		    Name: <%= b.name%><br>
-		    Description: <%= b.description%><br>
-				Summary: <%= b.summary%><br>
-				Author: <%= b.author%><br>
-				Translator : <%= b.translator%><br>
-				Publisher : <%= b.publisher%><br>
-			  ISBN: <%= b.ISBN%><br>
-
-		    Publish Date: <%= b.published_at%><br>
-
-		    <%= link_to "Edit", edit_book_path(b)%>
-		    <%= link_to "Delete", book_path(b), method: :delete %><br><br>
-	    </div>
-	     	</div>
+				<div class="col-md-8 ">
+					<div class="row">
+						<h4>	<%=link_to b.name, book_path(b) %> </h4>
+					    <b>ISBN:</b>  <%= b.ISBN%><br>
+					    <b>Description:</b>  <%= b.description%><br>
+					    <b>Summary:</b>  <%= b.summary.first(200)%><%=link_to "...more", book_path(b) %><br>
+					     <b>Publish Date:</b>  <%= b.published_at%><br>
+					</div>
+					<div class="row" >
+            <% if current_admin.present?%>
+          <%= link_to "Edit", edit_book_path(b)%>
+					    <%= link_to "Delete", book_path(b), method: :delete %><br><br>
+                <% end %>
+				    </div>
+			    </div>
+			</div>
+	</div>
 <% end %>
-
+<% if current_admin.present?%>
 <%= link_to "Add New Book", new_book_path %>
+<% end %>

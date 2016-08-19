@@ -1,21 +1,44 @@
-<div class=""></div>
-<b>Book Name:</b><td><%= @book.name%></td><br>
-<b>Description:</b><td><%= @book.description%></td><br>
-<b>Summary:</b><td><%= @book.summary%></td><br>
-<b>Author:</b><td><%= @book.author%></td><br>
-<b>Translator:</b><td><%= @book.translator%></td><br>
-<b>Publisher:</b><td><%= @book.publisher%></td><br>
-<b>ISBN:</b><td><%= @book.ISBN%></td><br>
-<b>Publish Date:</b><td><%= @book.published_at%></td><br>
-<b>Avarage Rating:</b><td><%= @book.average_rating%></td><br>
-
+<div class="row">
+  <div class="col-md-3">
+    <p class="round-image-100"><%= image_tag(@book.book_image.url(:medium)) %></p>
+  </div>
+  <div class="col-md-9">
+    <b>Book Name:</b>
+    <td><%= @book.name %></td>
+    <br>
+    <b>Description:</b>
+    <td><%= @book.description %></td>
+    <br>
+    <b>Summary:</b>
+    <td><%= @book.summary %></td>
+    <br>
+    <b>Author:</b>
+    <td><%= @book.authors.collect { |x| x.name }.join(", ") %></td>
+    <br>
+    <b>Translator:</b>
+    <td><%= @book.translator %></td>
+    <br>
+    <b>Publisher:</b>
+    <td><%= @book.publisher %></td>
+    <br>
+    <b>ISBN:</b>
+    <td><%= @book.ISBN %></td>
+    <br>
+    <b>Publish Date:</b>
+    <td><%= @book.published_at %></td>
+    <br>
+    <b>Avarage Rating:</b>
+    <td><%= @book.average_rating %></td>
+    <br>
+  </div>
+  <%= link_to "Go Books", books_path %>
+</div>
 
 
 
 <%= render 'votes/form' %>
 
-<%= render 'comments/form'%>
+<%= render 'comments/form' %>
 
-<%= link_to "Go Books", books_path %>
 
-<p class="round-image-50"><%= image_tag(@book.book_image.url(:thumb)) %></p>
+

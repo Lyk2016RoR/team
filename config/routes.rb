@@ -7,8 +7,7 @@ Rails.application.routes.draw do
 }
 
   devise_for :admins, controllers: {
-      sessions: 'admins/sessions',
-      registrations: 'admins/registrations'
+      sessions: 'admins/sessions'
     }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -24,8 +23,10 @@ Rails.application.routes.draw do
   resources :authors
   resources :categories, only: [:show, :index]
   resources :comments, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
+  resources :lists
 
-
+  get 'user/:id', to: 'profiles#show'
 
 
 

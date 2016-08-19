@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :book, optional: true
   belongs_to :author, optional: true
-
+  belongs_to :user
   validate :author_or_book?
   validate :author_or_book
 

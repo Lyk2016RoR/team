@@ -2,10 +2,11 @@ class VotesController < ApplicationController
 
   before_action :set_book
   before_action :set_vote, only: [:update]
-
+  before_action :authorize_user!
 
   def create
     @vote = @book.votes.new
+    redirect_to @book, notice: "Vote is empty" and return if params[:vote].nil?
     @vote.rating = params[:vote][:rating]
     @vote.user = current_user
 

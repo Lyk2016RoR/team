@@ -1,6 +1,8 @@
 <% unless @book.nil? %>
 <% @book.comments.reject { |comment| comment.id.nil? }.each do |comment| %>
     <p>
+      <strong>Commenter:</strong>
+      <%= comment.user.email %><br />
       <strong>Comment:</strong>
       <%= comment.body %>
 
@@ -20,7 +22,6 @@
 
     <% end %>
 <% end %>
-
 
     <h2>Add a comment:</h2>
     <div class="panel-body">

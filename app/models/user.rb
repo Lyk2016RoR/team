@@ -8,6 +8,10 @@ class User < ApplicationRecord
  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_many :votes
+  has_many :books
+  has_many :comments
+  has_many :lists
+
 
 
 end
