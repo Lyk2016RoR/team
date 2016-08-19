@@ -1,6 +1,28 @@
-    <%= @profile.name %>
+ 
+<div class="row book_border">
+		<div class="col-md-4 ">
+					<p class="round-image-100"><%= image_tag(@profile.avatar.url(:medium)) %></p>
+		</div>
+		<div class="col-md-8">
+		 <h4> <%= @profile.name.titleize %> <%= @profile.surname.titleize %> </h4>
+		</div>
+		<div class="col-sm-4">
+		    <h4 >Your Book Lists</h4> <br>
+		 
+		    <% @profile.lists.each do |l| %>
+			    <% l.books.each do |b| %>
+				    <div class="col-sm-2">
+				    	<p class="round-image-50"><%= image_tag (b.book_image.url(:thumb)) %></p>
+				    </div>
+				    <div class="col-sm-10">
+				    	<li>  <%=link_to l.name, l %> </li>
+				    </div>
+			    <% end %>
+			 </div>
+			<% end %>
+		
+		   <%= link_to 'Add New List', new_list_path%> 
+</div>
+  
 
-    <h4>Your Lists</h4>
-    <% @profile.lists.each do |l| %>
-        <%=link_to l.name, l %>
-    <% end %>
+

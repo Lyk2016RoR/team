@@ -10,7 +10,7 @@
     <td><%= @book.description %></td>
     <br>
     <b>Summary:</b>
-    <td><%= @book.summary %></td>
+    <td><%= @book.summary.first(200)%><%=link_to "...more", book_path(@book) %></td>
     <br>
     <b>Author:</b>
     <td><%= @book.authors.collect { |x| x.name }.join(", ") %></td>
