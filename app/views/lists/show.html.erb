@@ -1,1 +1,4 @@
-<td><%= @list.books.collect { |x| x.name }.join(", ") %></td>
+
+<% @list.books.each do |l| %>
+  <%= link_to l.name, book_path(l) %><br>
+<% end %>

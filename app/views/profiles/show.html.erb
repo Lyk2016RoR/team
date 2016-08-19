@@ -2,5 +2,7 @@
 
     <h4>Your Lists</h4>
     <% @profile.lists.each do |l| %>
-        <%=link_to l.name, l %>
+        <%=link_to l.name, l %><br>
     <% end %>
+
+    <%= link_to "Add New List", new_list_path %>
